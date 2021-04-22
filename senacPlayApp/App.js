@@ -1,41 +1,22 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Home from './pages/Home'
 
 const Drawer = createDrawerNavigator();
 
 const App = () => {
 
   return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="Feed" component={ } />
-      <Drawer.Screen name="Article" component={ } />
+    <NavigationContainer>
+    <Drawer.Navigator initialRouteName="Home">
+      <Drawer.Screen name="Home" component={Home} />
     </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
     
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default App;
