@@ -1,22 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import styles from './styles'
 
 const RenderFilm = ({ item }) => {
     return (
         <View style={styles.container}>
-            <Text>{item.nome}</Text>
-            <Text>{item.categoria}</Text>
+            
+            <Image source={{ uri: item.imagem }} style={styles.image} />
         </View>
     )
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
 
 export default RenderFilm;

@@ -1,44 +1,22 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-    titleAndPrice: {
-        flexDirection: 'row',
+
+    image: {
+        width: 100,
+        height: 150,
+        borderRadius: 8,
+        borderWidth: 1,
+        borderColor: '#7600a9'
+    },
+     container : {
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginTop:5,
-        marginHorizontal: 5
-    },
-    img: {
-        width: 80,
-        height: 80,
-    },
-    card: {
-        justifyContent: 'space-between',
-        marginTop: 25,
-        marginBottom: 5,
-        marginHorizontal:10,
-        borderRadius: 10,
-        elevation: 5,
-        backgroundColor: '#fff',
-        overflow: 'hidden',
-        paddingBottom:10
-    },
-    title: {
-        fontSize: 20,
-        color: '#e22424',
-        fontWeight: 'bold',
-    },
-    price: {
-        fontSize: 15,
-        color: '#e22424',
-        fontWeight: 'bold',
-    },
-    content: {
-        flexDirection: 'row',
-        justifyContent:'space-between',
-        marginBottom:10
-    }
+        marginLeft: 15,
+        marginTop: 10
+    } 
 
-});
+   
+})
 
 export default styles;
