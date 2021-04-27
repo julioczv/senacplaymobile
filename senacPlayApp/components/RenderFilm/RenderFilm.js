@@ -1,13 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Image, TouchableOpacity } from 'react-native';
+import { WebView } from 'react-native-webview'
 import styles from './styles'
+import { useNavigation } from '@react-navigation/native';
 
 const RenderFilm = ({ item }) => {
+    const navigation = useNavigation();
     return (
-        <View style={styles.container}>
-            
-            <Image source={{ uri: item.imagem }} style={styles.image} />
-        </View>
+        <TouchableOpacity
+        onPress={ () => navigation.navigate("Watch")}>
+            <View style={styles.container}>
+
+                <Image source={{ uri: item.imagem }} style={styles.image} />
+            </View>
+        </TouchableOpacity>
     )
 };
 

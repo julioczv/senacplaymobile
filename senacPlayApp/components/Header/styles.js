@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         borderColor: '#7600a9'
        
     },
-    webkit
+    
 });
 
 export default styles;
