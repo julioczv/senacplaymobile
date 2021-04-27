@@ -17,7 +17,8 @@ const Home = ({ navigation }) => {
             response = await api.get(`/filmes`);
         else
             response = await api.get(`/filmes/nome/${search}`); //Chave de busca da API
-        setMovies([]);
+            console.log(response.data);
+            setMovies([]);
         if (response.data)
             setMovies(response.data);
     };
@@ -30,18 +31,19 @@ const Home = ({ navigation }) => {
         <View style={styles.container}>
             <Header>
                 <TextInput
-                    style={{ height: 40 }}
+                    style={{ height: 40, color: '#fff' }}
                     placeholder="Pesquise Seu Filme"
                     id="search"
                     name="search"
                     type="text"
-                    onChangeText={}
+                    onChangeText={setSearch}
                     value={search}
+                    placeholderTextColor="white"
                 />
             </Header>
             <FlatList
                 numColumns={colunas}
-                data={movies.data}
+                data={movies}
                 renderItem={
                     ({ item }) =>
                         <RenderFilm item={item} />
