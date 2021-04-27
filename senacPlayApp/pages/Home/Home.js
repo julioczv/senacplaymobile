@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Image, Text, FlatList, StyleSheet } from 'react-native';
-/* import styles from './styles'; */
+import { View, FlatList } from 'react-native';
+import styles from './styles';
 import api from '../../services';
 import RenderFilm from '../../components/RenderFilm'
 
@@ -20,6 +20,7 @@ const Home = () => {
     return (
         <View style={styles.container}>
             <FlatList
+                horizontal
                 data={films.data}
                 renderItem={
                     ({ item }) =>
@@ -30,14 +31,5 @@ const Home = () => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
 
 export default Home;
