@@ -1,35 +1,47 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
-import { View, FlatList } from 'react-native';
+import { View, FlatList, TextInput } from 'react-native';
 import styles from './styles';
-=======
-import { View, Image, Text, FlatList, ScrollView} from 'react-native';
-import styles from './styles'; 
->>>>>>> 82886bb4298641e3bd50c28ab68fe13393ee453b
 import api from '../../services';
 import RenderFilm from '../../components/RenderFilm'
 import Header from '../../components/Header'
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
     const colunas = 4
 
-    const [films, setFilms] = useState([]);
+    const [movies, setMovies] = useState([]);
+    const [search, setSearch] = useState('');
 
-    const loadingFilms = async () => {
-        const response = await api.get('filmes')
-        setFilms(response);
-    }
+    const loadingMovies = async () => {
+        let response;
+        if (search === '')
+            response = await api.get(`/filmes`);
+        else
+            response = await api.get(`/filmes/nome/${search}`); //Chave de busca da API
+        setMovies([]);
+        if (response.data)
+            setMovies(response.data);
+    };
 
     useEffect(() => {
-        loadingFilms();
-    }, [films]);
+        loadingMovies();
+    }, [search]);
 
     return (
-<<<<<<< HEAD
         <View style={styles.container}>
+            <Header>
+                <TextInput
+                    style={{ height: 40 }}
+                    placeholder="Pesquise Seu Filme"
+                    id="search"
+                    name="search"
+                    type="text"
+                    onChangeText={}
+                    value={search}
+                />
+            </Header>
             <FlatList
-                horizontal
-                data={films.data}
+                numColumns={colunas}
+                data={movies.data}
                 renderItem={
                     ({ item }) =>
                         <RenderFilm item={item} />
@@ -41,24 +53,3 @@ const Home = ({navigation}) => {
 };
 
 export default Home;
-=======
-        <ScrollView style={styles.container}>
-            <ScrollView>
-                <Header />      
-                    <FlatList contentContainerStyle={{ paddingBottom: 10 }}
-                        numColumns={colunas}
-                        data={films.data}
-                        renderItem={
-                            ({ item }) =>
-                                <RenderFilm item={item} />
-                        }
-                        keyExtractor={item => String(item.id)}
-                    />            
-            </ScrollView>
-        </ScrollView>
-    );
-};
-
-
-export default Home;
->>>>>>> 82886bb4298641e3bd50c28ab68fe13393ee453b
