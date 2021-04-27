@@ -1,7 +1,15 @@
-import VideoPlayer from 'react-native-video-controls';
+import { View, Text } from 'react-native'
+import React from 'react'
 
 
-<VideoPlayer
-    source={{ uri: 'https://vjs.zencdn.net/v/oceans.mp4' }}
-    navigator={ this.props.navigator }
-/>
+const Watch = () => {
+    return (
+        <View>
+            
+        </View>
+    )
+}
+
+
+
+export default Watch ; 
