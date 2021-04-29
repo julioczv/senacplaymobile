@@ -9,7 +9,7 @@ const RenderFilm = ({ item }) => {
     return (
         <View>
             <TouchableOpacity
-                onPress={() => navigation.navigate("Watch")}>
+                onPress={() => navigation.navigate("Watch", item)}>
                 <View style={styles.container}>
 
                     <Image source={{ uri: item.imagem }} style={styles.img} />

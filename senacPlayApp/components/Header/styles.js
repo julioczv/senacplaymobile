@@ -9,6 +9,16 @@ const styles = StyleSheet.create({
         borderColor: '#7600a9'
        
     },
+    lupa: {
+        flexDirection: 'row',
+        
+    },
+    header: {
+        backgroundColor:"#212529",
+        alignItems: 'center'
+        
+    }
+
     
 });
 

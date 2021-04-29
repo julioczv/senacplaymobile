@@ -30,32 +30,27 @@ const Home = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Header>
-                <TextInput
-                    style={{ height: 40, color: '#fff' }}
-                    placeholder="Pesquise Seu Filme"
-                    id="search"
-                    name="search"
-                    type="text"
-                    onChangeText={setSearch}
-                    value={search}
-                    placeholderTextColor="white"
-                />
+                    <TextInput
+                        style={{ height: 40, color: '#fff' }}
+                        placeholder="Pesquise Seu Filme"
+                        id="search"
+                        name="search"
+                        type="text"
+                        onChangeText={setSearch}
+                        value={search}
+                        placeholderTextColor="white"
+                    />
             </Header>
             <View>
                 <FlatList
-                    contentContainerStyle={{ paddingBottom: 220 }}
+                    contentContainerStyle={{ paddingBottom: 110 }}
                     numColumns={colunas}
                     data={movies}
                     renderItem={
                         ({ item }) =>
                             <RenderFilm item={item} />
-                              
-                        }    
-                        watch={
-                           ({ item }) =>
-                            <Watch item ={item} />
-                        }    
-                    
+
+                    }
                     keyExtractor={item => String(item.id)}
                 />
             </View>
