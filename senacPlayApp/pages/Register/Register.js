@@ -32,6 +32,7 @@ const Register = () => {
             const response = await api.post('users', user);
             if (response.data) {
                 // Colocar a rota de login
+                 
             }
         }
     });
