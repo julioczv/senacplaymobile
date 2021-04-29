@@ -4,7 +4,6 @@ import api from '../../services';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
-import { Divider } from 'react-native-paper';
 
 const Login = () => {
 
@@ -51,7 +50,7 @@ const Login = () => {
 
             <TextInput
                 style={styles.input}
-                type="text"
+                type="password"
                 placeholder="Senha"
                 onChangeText={formik.handleChange('senha')}
                 onBlur={formik.handleBlur}
@@ -66,7 +65,7 @@ const Login = () => {
                 color="#7600a9"
             />
 
-            <Divider />
+          
 
         </View>
     )
