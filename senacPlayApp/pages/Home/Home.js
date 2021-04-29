@@ -4,6 +4,7 @@ import styles from './styles';
 import api from '../../services';
 import RenderFilm from '../../components/RenderFilm'
 import Header from '../../components/Header'
+import Watch from '../Watch'
 
 const Home = ({ navigation }) => {
     const colunas = 4
@@ -17,8 +18,7 @@ const Home = ({ navigation }) => {
             response = await api.get(`/filmes`);
         else
             response = await api.get(`/filmes/nome/${search}`); //Chave de busca da API
-            console.log(response.data);
-            setMovies([]);
+        setMovies([]);
         if (response.data)
             setMovies(response.data);
     };
@@ -41,15 +41,24 @@ const Home = ({ navigation }) => {
                     placeholderTextColor="white"
                 />
             </Header>
-            <FlatList
-                numColumns={colunas}
-                data={movies}
-                renderItem={
-                    ({ item }) =>
-                        <RenderFilm item={item} />
-                }
-                keyExtractor={item => String(item.id)}
-            />
+            <View>
+                <FlatList
+                    contentContainerStyle={{ paddingBottom: 220 }}
+                    numColumns={colunas}
+                    data={movies}
+                    renderItem={
+                        ({ item }) =>
+                            <RenderFilm item={item} />
+                              
+                        }    
+                        watch={
+                           ({ item }) =>
+                            <Watch item ={item} />
+                        }    
+                    
+                    keyExtractor={item => String(item.id)}
+                />
+            </View>
         </View>
     );
 };
