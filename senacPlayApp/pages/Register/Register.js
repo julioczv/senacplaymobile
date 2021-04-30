@@ -75,7 +75,7 @@ const Register = () => {
 
             <TextInput
                 style={styles.input}
-                type="password"
+                secureTextEntry={true}
                 placeholder="Insira sua senha"
                 onChangeText={formik.handleChange('password')}
                 onBlur={formik.handleBlur}

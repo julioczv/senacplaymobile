@@ -20,6 +20,10 @@ const Watch = ({ route, navigation }) => {
                         <Image source={{ uri: item.imagem }} style={styles.img} />
                     </View>
 
+                    <View>
+                        <Text style={styles.textColor}>Filme: {item.nome}</Text>
+                    </View>
+
                     <View style={styles.ano}>
                         <Text style={styles.textColor}>Ano: {item.anoDeLancamento}</Text>
                     </View>

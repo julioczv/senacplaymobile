@@ -2,7 +2,6 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 
-/* Screens */
 import Home from './pages/Home'
 import Watch from './pages/Watch'
 import Register from './pages/Register'
@@ -14,7 +13,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home" headerMode={'none'}>
+      <Stack.Navigator initialRouteName="Login" headerMode={'none'}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
@@ -23,8 +22,5 @@ const App = () => {
     </NavigationContainer>
   );
 }
-
-
-
 
 export default App;

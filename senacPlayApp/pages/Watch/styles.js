@@ -10,16 +10,17 @@ const styles = StyleSheet.create({
         color: '#fff',
     },
     img: {
-        width: 100,
-        height: 180,
+        width: windowWidth*0.4,
+        height: windowHeight*0.35,
         borderWidth: 1,
         borderRadius: 10,
         borderColor: '#7600a9',
-        marginTop: 30,
-
+        marginTop: 20,
+        marginBottom: 15
     },
     textColor: {
         color: '#fff',
+        fontSize: 18
     },
     sinopse: {
         marginTop: 15,

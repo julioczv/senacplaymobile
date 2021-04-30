@@ -7,19 +7,14 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         borderWidth: 1,
         borderColor: '#7600a9'
-       
     },
     lupa: {
         flexDirection: 'row',
-        
     },
     header: {
         backgroundColor:"#212529",
         alignItems: 'center'
-        
     }
-
-    
 });
 
 export default styles;

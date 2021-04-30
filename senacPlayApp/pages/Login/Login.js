@@ -50,7 +50,7 @@ const Login = () => {
 
             <TextInput
                 style={styles.input}
-                type="password"
+                secureTextEntry={true}
                 placeholder="Senha"
                 onChangeText={formik.handleChange('senha')}
                 onBlur={formik.handleBlur}
