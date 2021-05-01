@@ -4,8 +4,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#000'
     },
     input: {
         marginBottom: 8,
@@ -32,6 +30,19 @@ const styles = StyleSheet.create({
         color: '#fff',
         marginBottom: 20
     },
+    image: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center",
+        alignItems: 'center',
+    },
+    error: {
+        color: '#f54242'
+    },
+    button: {
+        backgroundColor: '#7600a9',
+        width: 100
+    }
 });
 
 export default styles;

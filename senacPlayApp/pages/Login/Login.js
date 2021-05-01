@@ -1,9 +1,11 @@
 import React from 'react';
-import { Text, TextInput, View, Button, Image } from 'react-native';
+import { Text, TextInput, View, Image, ImageBackground } from 'react-native';
+import { Button } from 'react-native-elements';
 import api from '../../services';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 const Login = () => {
 
@@ -13,19 +15,20 @@ const Login = () => {
             senha: '',
 
         },
-        /* validationSchema: Yup.object({
-            email: Yup.string().email('E-mail inválido').required('Obrigatório'),
-            senha: Yup.string().required('Obrigatório'),
+        validationSchema: Yup.object({
+            email: Yup.string().email('Email inválido').required('Email obrigatório!'),
+            senha: Yup.string().required('Senha obrigatório'),
         }),
- */
+
         onSubmit: async (values) => {
             const login = {
                 email: values.email,
                 senha: values.senha
             };
             const response = await api.post('/login', login);
+            const navigation = useNavigation()
             if (response.data) {
-                history.push('/filmslist')
+                navigation.navigate("Home")
             }
         }
     });
@@ -33,41 +36,47 @@ const Login = () => {
     return (
 
         <View style={styles.container}>
+            <ImageBackground style={styles.image} source={require('../../assets/background.jpg')} >
 
-            <Image
-                source={require('../../assets/logomobile.png')}
-                style={styles.logo}
-            />
+                <Image
+                    source={require('../../assets/logomobile.png')}
+                    style={styles.logo}
+                />
 
-            <TextInput
-                style={styles.input}
-                type="text"
-                placeholder="Email"
-                onChangeText={formik.handleChange('email')}
-                onBlur={formik.handleBlur}
-                value={formik.values.email}
-            />
+                <View>
+                    <TextInput
+                        style={styles.input}
+                        type="text"
+                        placeholder="Email"
+                        onChangeText={formik.handleChange('email')}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.email}
+                    />
+                    {formik.errors.email && formik.touched.email ? <Text style={styles.error}>{formik.errors.email}</Text> : null}
+                </View>
 
-            <TextInput
-                style={styles.input}
-                secureTextEntry={true}
-                placeholder="Senha"
-                onChangeText={formik.handleChange('senha')}
-                onBlur={formik.handleBlur}
-                value={formik.values.senha}
+                <View>
+                    <TextInput
+                        style={styles.input}
+                        secureTextEntry={true}
+                        placeholder="Senha"
+                        onChangeText={formik.handleChange('senha')}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.senha}
 
-            />
+                    />
+                    {formik.errors.senha && formik.touched.senha ? <Text style={styles.error}>{formik.errors.senha}</Text> : null}
+                </View>
 
-            <Button
-                title="Enviar"
-                style={styles.button}
-                onPress={formik.handleSubmit}
-                color="#7600a9"
-            />
+                <Button
+                    title="Entrar"
+                    onPress={formik.handleSubmit}
+                    buttonStyle={styles.button}
+                />
 
-          
-
+            </ImageBackground>
         </View>
+
     )
 }
 
