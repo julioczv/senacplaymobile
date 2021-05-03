@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 
-const Login = () => {
+const Login = ({navigation}) => {
 
     const formik = useFormik({
         initialValues: {
@@ -26,9 +26,8 @@ const Login = () => {
                 senha: values.senha
             };
             const response = await api.post('/login', login);
-            const navigation = useNavigation()
             if (response.data) {
-                navigation.navigate("Home")
+                navigation.navigate("Home");
             }
         }
     });

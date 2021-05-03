@@ -1,13 +1,14 @@
 import React from 'react';
-import { Text, TextInput, View, Image, ImageBackground } from 'react-native';
+import { Text, TextInput, View, Image, ImageBackground, Alert } from 'react-native';
 import { Button } from 'react-native-elements';
 import api from '../../services';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
+import * as Notifications from 'expo-notifications';
 
-const Register = () => {
+
+const Register = ({ navigation }) => {
 
     const formik = useFormik({
         initialValues: {
@@ -30,13 +31,11 @@ const Register = () => {
                 nomeCompleto: values.name,
                 usuario: values.user,
             };
-
-            const response = await api.post('users', user);
-            const navigation = useNavigation();
-            if (response.data) {
-               // Página de Login!
-            }
-            console.log(values)
+            Alert.alert('Teste')
+            /* const response = await api.post('users', user); */
+            /* if (response.data) {
+               navigation.navigate("Login");
+            } */
         }
     });
 
