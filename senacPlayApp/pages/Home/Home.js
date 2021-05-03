@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { View, FlatList, TextInput } from 'react-native';
 import styles from './styles';
 import api from '../../services';
-import RenderFilm from '../../components/RenderFilm'
-import Header from '../../components/Header'
-import Watch from '../Watch'
+import RenderFilm from '../../components/RenderFilm';
+import Header from '../../components/Header';
 
 const Home = ({ navigation }) => {
     const colunas = 4
@@ -23,13 +22,17 @@ const Home = ({ navigation }) => {
             setMovies(response.data);
     };
 
+    const goToCfg = () => {
+        navigation.navigate('CfgUsuario');
+      }
+
     useEffect(() => {
         loadingMovies();
     }, [search]);
 
     return (
         <View style={styles.container}>
-            <Header>
+            <Header action={goToCfg} >
                     <TextInput
                         style={{ height: 40, color: '#fff' }}
                         placeholder="Pesquise Seu Filme"
