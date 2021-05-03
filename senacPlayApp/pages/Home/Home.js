@@ -4,7 +4,6 @@ import styles from './styles';
 import api from '../../services';
 import RenderFilm from '../../components/RenderFilm'
 import Header from '../../components/Header'
-import Watch from '../Watch'
 
 const Home = ({ navigation }) => {
     const colunas = 4
