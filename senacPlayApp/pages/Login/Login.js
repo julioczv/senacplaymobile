@@ -16,8 +16,8 @@ const Login = ({navigation}) => {
 
         },
         validationSchema: Yup.object({
-            email: Yup.string().email('Email inválido').required('Email obrigatório!'),
-            senha: Yup.string().required('Senha obrigatório'),
+            email: Yup.string().email('Email inválido').required('Esse campo é obrigatorio!'),
+            senha: Yup.string().required('Esse campo é obrigatorio!'),
         }),
 
         onSubmit: async (values) => {

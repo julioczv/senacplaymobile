@@ -18,9 +18,9 @@ const Register = ({ navigation }) => {
             password: '',
         },
         validationSchema: Yup.object({
-            name: Yup.string().required('Nome obrigatório!'),
-            email: Yup.string().email('Email inválido!').required('Email obrigatório!'),
-            user: Yup.string().required('Usuário obrigatório!'),
+            name: Yup.string().required('Esse campo é obrigatorio!'),
+            email: Yup.string().email('Email inválido!').required('Esse campo é obrigatorio!'),
+            user: Yup.string().required('Esse campo é obrigatorio!'),
             password: Yup.string().required('Senha requirida!'),
         }),
 
