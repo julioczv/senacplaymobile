@@ -10,10 +10,14 @@ const styles = StyleSheet.create({
     },
     lupa: {
         flexDirection: 'row',
+        alignItems: 'center'
     },
     header: {
         backgroundColor:"#212529",
         alignItems: 'center'
+    },
+    search: {
+        marginLeft: 5
     }
 });
 

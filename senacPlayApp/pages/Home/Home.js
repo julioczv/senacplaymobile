@@ -37,13 +37,13 @@ const Home = ({ navigation }) => {
             >
                     <TextInput
                         style={{ height: 40, color: '#fff' }}
-                        placeholder="Pesquise Seu Filme"
+                        placeholder="Pesquise seu filme"
                         id="search"
                         name="search"
                         type="text"
                         onChangeText={setSearch}
                         value={search}
-                        placeholderTextColor="white"
+                        placeholderTextColor="#b7b7b7"
                     />
             </Header>
             <View>
