@@ -32,7 +32,9 @@ const Home = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Header action={goToCfg} >
+            <Header 
+            action={goToCfg} 
+            >
                     <TextInput
                         style={{ height: 40, color: '#fff' }}
                         placeholder="Pesquise Seu Filme"

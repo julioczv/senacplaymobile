@@ -5,8 +5,6 @@ import api from '../../services';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
-import * as Notifications from 'expo-notifications';
-
 
 const Register = ({ navigation }) => {
 
