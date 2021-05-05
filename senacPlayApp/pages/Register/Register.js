@@ -19,24 +19,42 @@ const Register = ({ navigation }) => {
             name: Yup.string().required('Esse campo é obrigatorio!'),
             email: Yup.string().email('Email inválido!').required('Esse campo é obrigatorio!'),
             user: Yup.string().required('Esse campo é obrigatorio!'),
-            password: Yup.string().required('Senha requirida!'),
+            password: Yup.string().min(5,'Mínimo 5 Caracteres').required('Senha requirida!'),
         }),
 
         onSubmit: async (values) => {
-            const user = {
-                email: values.email,
-                senha: values.password,
-                nomeCompleto: values.name,
-                usuario: values.user,
-            };
-            Alert.alert('Teste')
-            /* const response = await api.post('users', user); */
-            /* if (response.data) {
-               navigation.navigate("Login");
-            } */
+            try {
+                const user = {
+                    email: values.email,
+                    senha: values.password,
+                    nomeCompleto: values.name,
+                    usuario: values.user,
+                };
+                const response = await api.post('users', user);
+                if (response.data) {
+                    Alert.alert('Conta criada!')
+                    navigation.navigate("Login");
+                }
+            } catch (error) {
+                Alert.alert('Teste')
+            }
         }
     });
 
+        // onSubmit: async (values) => {
+        //     const user = {
+        //         email: values.email,
+        //         senha: values.password,
+        //         nomeCompleto: values.name,
+        //         usuario: values.user,
+        //     };
+        //     Alert.alert('Teste')
+        //     /* const response = await api.post('users', user); */
+        //     /* if (response.data) {
+        //        navigation.navigate("Login");
+        //     } */
+        // }
+    
     return (
         <View style={styles.container}>
             <ImageBackground style={styles.image} source={require('../../assets/background.jpg')}>

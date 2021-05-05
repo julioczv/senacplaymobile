@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({navigation}) => {
 
@@ -16,21 +17,34 @@ const Login = ({navigation}) => {
 
         },
         validationSchema: Yup.object({
-            email: Yup.string().email('Email inválido').required('Esse campo é obrigatorio!'),
-            senha: Yup.string().required('Esse campo é obrigatorio!'),
+            email: Yup.string().email('Email inválido').required('Esse campo é obrigatório!'),
+            senha: Yup.string().required('Esse campo é obrigatório!'),
         }),
 
         onSubmit: async (values) => {
-            const login = {
-                email: values.email,
-                senha: values.senha
-            };
-            const response = await api.post('/login', login);
-            if (response.data) {
-                navigation.navigate("Home");
+            try {
+                const login = {
+                    email: values.email,
+                    senha: values.senha
+                };
+                const response = await api.post('login', login);
+                if (response.data) {
+                    navigation.navigate("Home");
+                    await AsyncStorage.setItem('login', values.email)
+                }
+            } catch (error) {
+                Alert.alert(`Algo inesperado aconteceu! ${error}`)
             }
         }
     });
+
+    const userLogin = async (email) => {
+        try {
+            await AsyncStorage.setItem('login', email)
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
     return (
 
