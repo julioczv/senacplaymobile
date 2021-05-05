@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Text, TextInput, View, Image, ImageBackground, Alert, StatusBar, KeyboardAvoidingView } from 'react-native';
 import { showMessage } from 'react-native-flash-message';
 import { Button } from 'react-native-elements';
@@ -8,6 +8,7 @@ import * as Yup from 'yup';
 import styles from './styles';
 
 const Register = ({ navigation }) => {
+const [name, setName] = useState(''); 
 
     /* const formik = useFormik({
         initialValues: {
@@ -50,10 +51,10 @@ const Register = ({ navigation }) => {
         <>
             <View style={styles.container}>
                 <ImageBackground style={styles.image} source={require('../../assets/background.jpg')}>
-                    {formik.errors.name ? showMessage({
-                        message: formik.errors.name,
+                 {/*    {formik.errors.name ? showMessage({
+                        message: errors.name,
                         type: "danger",
-                    }) : null}
+                    }) : null} */}
                     <Image
                         source={require('../../assets/logomobile.png')}
                         style={styles.logo}

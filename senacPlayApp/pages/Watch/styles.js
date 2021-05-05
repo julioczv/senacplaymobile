@@ -18,10 +18,6 @@ const styles = StyleSheet.create({
         borderColor: '#7600a9',
         marginTop: 20,
         marginBottom: 15,
-<<<<<<< HEAD
-=======
-        marginLeft: 3
->>>>>>> c72b8d759be4ea0d85dc7adb4fd002c855c0596a
     },
     textColor: {
         color: '#fff',
@@ -44,20 +40,18 @@ const styles = StyleSheet.create({
     },
     colorido: {
         color: '#7600a9',
-        fontSize: 23
+        fontSize: 21
     },
-<<<<<<< HEAD
     infoCard: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center'
-=======
+    },
     colorSinopse: {
+        fontSize: 26,
         color: '#7600a9',
-        fontSize: 30,
-        paddingTop: 20,
-        paddingLeft: 150
->>>>>>> c72b8d759be4ea0d85dc7adb4fd002c855c0596a
+        alignSelf: 'center',
+        paddingTop: 20
     }
 })
 

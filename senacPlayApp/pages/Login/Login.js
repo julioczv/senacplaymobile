@@ -56,7 +56,7 @@ const Login = ({ navigation }) => {
                         onBlur={formik.handleBlur}
                         value={formik.values.email}
                     />
-                    {formik.errors.email && formik.touched.email ? <Text style={styles.error}>{formik.errors.email}</Text> : null}
+                   {/*  {formik.errors.email && formik.touched.email ? <Text style={styles.error}>{formik.errors.email}</Text> : null} */}
                 </View>
 
                 <View>
@@ -69,7 +69,7 @@ const Login = ({ navigation }) => {
                         value={formik.values.senha}
 
                     />
-                    {formik.errors.senha && formik.touched.senha ? <Text style={styles.error}>{formik.errors.senha}</Text> : null}
+{/*                     {formik.errors.senha && formik.touched.senha ? <Text style={styles.error}>{formik.errors.senha}</Text> : null} */}
                 </View>
 
                 <Button
@@ -77,6 +77,8 @@ const Login = ({ navigation }) => {
                     onPress={formik.handleSubmit}
                     buttonStyle={styles.button}
                 />
+                <Text>Cique <Text
+                onPress={()=>navigation.navigate("Register")}>aqui</Text>para se registrar</Text>
 
             </ImageBackground>
         </View>

@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Register" headerMode={'none'}>
+      <Stack.Navigator initialRouteName="Login" headerMode={'none'}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
