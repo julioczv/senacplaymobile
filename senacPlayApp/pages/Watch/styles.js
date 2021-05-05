@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderColor: '#7600a9',
         marginTop: 20,
-        marginBottom: 15
+        marginBottom: 15,
     },
     textColor: {
         color: '#fff',
@@ -35,6 +35,11 @@ const styles = StyleSheet.create({
         height: windowHeight*0.5,
         marginBottom: 40
     },
+    infoCard: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
 })
 
 export default styles;

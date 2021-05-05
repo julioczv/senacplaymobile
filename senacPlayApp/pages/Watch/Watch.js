@@ -15,29 +15,31 @@ const Watch = ({ route, navigation }) => {
             <Header type='goBack' action={goBack} />
             <ScrollView>
                 <View style={styles.container}>
+                    <View styles={styles.infoCard}>
+                        <View>
+                            <Image source={{ uri: item.imagem }} style={styles.img} />
+                        </View>
+                        <View>
+                            <View>
+                                <Text style={styles.textColor}>Filme: {item.nome}</Text>
+                            </View>
 
-                    <View>
-                        <Image source={{ uri: item.imagem }} style={styles.img} />
-                    </View>
+                            <View style={styles.ano}>
+                                <Text style={styles.textColor}>Ano: {item.anoDeLancamento}</Text>
+                            </View>
 
-                    <View>
-                        <Text style={styles.textColor}>Filme: {item.nome}</Text>
-                    </View>
+                            <View style={styles.duracao}>
+                                <Text style={styles.textColor}>Duração: {item.duracao}</Text>
+                            </View>
 
-                    <View style={styles.ano}>
-                        <Text style={styles.textColor}>Ano: {item.anoDeLancamento}</Text>
-                    </View>
+                            <View style={styles.categoria}>
+                                <Text style={styles.textColor}>Categoria: {item.categoria}</Text>
+                            </View>
 
-                    <View style={styles.duracao}>
-                        <Text style={styles.textColor}>Duração: {item.duracao}</Text>
-                    </View>
-
-                    <View style={styles.categoria}>
-                        <Text style={styles.textColor}>Categoria: {item.categoria}</Text>
-                    </View>
-
-                    <View style={styles.class}>
-                        <Text style={styles.textColor}>Classificação: {item.classificacao}</Text>
+                            <View style={styles.class}>
+                                <Text style={styles.textColor}>Classificação: {item.classificacao}</Text>
+                            </View>
+                        </View>
                     </View>
 
                     <View style={styles.sinopse}>
@@ -45,10 +47,10 @@ const Watch = ({ route, navigation }) => {
                     </View>
 
                     <View style={styles.film}>
-                        <WebView 
-                        source={{ uri: item.link }}
-                        allowsFullscreenVideo={true}
-                        scalesPageToFit={true}
+                        <WebView
+                            source={{ uri: item.link }}
+                            allowsFullscreenVideo={true}
+                            scalesPageToFit={true}
                         />
                     </View>
 

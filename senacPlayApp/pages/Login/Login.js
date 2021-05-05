@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TextInput, View, Image, ImageBackground } from 'react-native';
+import { Text, TextInput, View, Image, ImageBackground, Alert } from 'react-native';
 import { Button } from 'react-native-elements';
 import api from '../../services';
 import { useFormik } from 'formik';
@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
 
     const formik = useFormik({
         initialValues: {
@@ -21,14 +21,19 @@ const Login = ({navigation}) => {
         }),
 
         onSubmit: async (values) => {
-            const login = {
-                email: values.email,
-                senha: values.senha
-            };
-            const response = await api.post('/login', login);
-            if (response.data) {
-                navigation.navigate("Home");
-            }
+
+            try {
+                const login = {
+                    email: values.email,
+                    senha: values.senha
+                };
+                const response = await api.post('/login', login);
+                if (response.data) {
+                    navigation.navigate("Home");
+                }
+            } catch (error) {
+                Alert.alert(`Algo inesperado aconteceu! ${error}`)
+            } 
         }
     });
 
