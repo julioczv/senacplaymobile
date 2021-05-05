@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#212529",
         color: '#fff',
+        paddingLeft: 3,
     },
     img: {
         width: windowWidth*0.4,
@@ -16,7 +17,11 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderColor: '#7600a9',
         marginTop: 20,
-        marginBottom: 15
+        marginBottom: 15,
+<<<<<<< HEAD
+=======
+        marginLeft: 3
+>>>>>>> c72b8d759be4ea0d85dc7adb4fd002c855c0596a
     },
     textColor: {
         color: '#fff',
@@ -25,6 +30,8 @@ const styles = StyleSheet.create({
     sinopse: {
         marginTop: 15,
         marginBottom: 15,
+        marginLeft: 3
+        
     },
     header: {
         width: 30,
@@ -33,8 +40,25 @@ const styles = StyleSheet.create({
     film: {
         width: windowWidth*1,
         height: windowHeight*0.5,
-        marginBottom: 40
+        marginBottom: 40,
     },
+    colorido: {
+        color: '#7600a9',
+        fontSize: 23
+    },
+<<<<<<< HEAD
+    infoCard: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
+=======
+    colorSinopse: {
+        color: '#7600a9',
+        fontSize: 30,
+        paddingTop: 20,
+        paddingLeft: 150
+>>>>>>> c72b8d759be4ea0d85dc7adb4fd002c855c0596a
+    }
 })
 
 export default styles;

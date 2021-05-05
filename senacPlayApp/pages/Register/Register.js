@@ -7,7 +7,6 @@ import { useFormik, Formik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
 
-
 const Register = ({ navigation }) => {
 
     /* const formik = useFormik({
@@ -18,23 +17,27 @@ const Register = ({ navigation }) => {
             password: '',
         },
         validationSchema: Yup.object({
-            name: Yup.string().required('Nome obrigatório!'),
-            email: Yup.string().email('Email inválido!').required('Email obrigatório!'),
-            user: Yup.string().required('Usuário obrigatório!'),
-            password: Yup.string().required('Senha requirida!'),
+            name: Yup.string().required('Esse campo é obrigatorio!'),
+            email: Yup.string().email('Email inválido!').required('Esse campo é obrigatorio!'),
+            user: Yup.string().required('Esse campo é obrigatorio!'),
+            password: Yup.string().min.required('Senha requirida!'),
         }),
 
         onSubmit: async (values) => {
-            const user = {
-                email: values.email,
-                senha: values.password,
-                nomeCompleto: values.name,
-                usuario: values.user,
-            };
-
-            const response = await api.post('users', user);
-            if (response.data) {
-               navigation.navigate("Login");
+            try {
+                const user = {
+                    email: values.email,
+                    senha: values.password,
+                    nomeCompleto: values.name,
+                    usuario: values.user,
+                };
+                const response = await api.post('users', user);
+                if (response.data) {
+                    Alert.alert('Conta criada com sucesso!')
+                    navigation.navigate("Login");
+                }
+            } catch (error) {
+                Alert.alert(`Algo inesperado aconteceu! ${error}`)
             }
         }
     }); */

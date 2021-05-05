@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Watch from './pages/Watch';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import CfgUsuario from './pages/CfgUsuario';
 
 const Stack = createStackNavigator();
 
