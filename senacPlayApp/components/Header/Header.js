@@ -5,7 +5,6 @@ import logo from '../../assets/logo.png';
 import styles from './styles';
 
 const FilmHeader = ({ action, children, type }) => {
-    
     if (type === 'goBack') {
         return (
             <Header backgroundColor="#212529">
@@ -17,23 +16,26 @@ const FilmHeader = ({ action, children, type }) => {
                         onPress={action}
                     />
                 </TouchableOpacity>
-                <Image source={logo} style={styles.logo} />
+                <Image source={logo} style={styles.logo} /> 
                 <View />
             </Header>
         )
     }
-
+    
     return (
         <Header backgroundColor="#212529">
+            
             <Image source={logo} style={styles.logo} />
-            <View style={styles.lupa}>
-                {children}
-                <Icon
+
+            <View style={styles.lupa}>{children}
+                <Icon style={styles.search}
                     type='font-awesome'
                     color='#7600a9'
                     name='search'
+                    size= {20}
                 />
             </View>
+
             <View>
                 <Icon
                     type='font-awesome'
@@ -42,6 +44,7 @@ const FilmHeader = ({ action, children, type }) => {
                     onPress={action}
                 />
             </View>
+
         </Header>
     );
 }

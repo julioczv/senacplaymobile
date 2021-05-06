@@ -4,9 +4,9 @@ import styles from './styles';
 import Header from '../../components/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const CfgUsuario = ({ navigation }) => {
+const ConfigUser = ({ navigation }) => {
 
-    const [login, setLogin] = useState();
+    const [login, setLogin] = useState({});
 
     const goBack = () => {
         navigation.goBack();
@@ -15,7 +15,7 @@ const CfgUsuario = ({ navigation }) => {
     const getLogin = async () => {
         try {
             const value = await AsyncStorage.getItem('login')
-            setLogin(value)
+            setLogin(JSON.parse(value))
             if(value !== null) {
             }
         } catch(e) {
@@ -30,9 +30,11 @@ const CfgUsuario = ({ navigation }) => {
     return (
         <View>
             <Header type='goBack' action={goBack}/>
-            <Text>{login}</Text>
+            <Text>Name: {login.nomeCompleto}</Text>
+            <Text>Username: {login.usuario}</Text>
+            <Text>Email: {login.email}</Text>
         </View>
     )
 };
 
-export default CfgUsuario;
+export default ConfigUser;

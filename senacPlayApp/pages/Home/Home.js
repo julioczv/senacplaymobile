@@ -23,7 +23,7 @@ const Home = ({ navigation }) => {
     };
 
     const goToCfg = () => {
-        navigation.navigate('CfgUsuario');
+        navigation.navigate('ConfigUser');
       }
 
     useEffect(() => {
@@ -32,18 +32,16 @@ const Home = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Header 
-            action={goToCfg} 
-            >
+            <Header action={goToCfg}>
                     <TextInput
                         style={{ height: 40, color: '#fff' }}
-                        placeholder="Pesquise Seu Filme"
+                        placeholder="Pesquise seu filme"
                         id="search"
                         name="search"
                         type="text"
                         onChangeText={setSearch}
                         value={search}
-                        placeholderTextColor="white"
+                        placeholderTextColor="#b7b7b7"
                     />
             </Header>
             <View>
