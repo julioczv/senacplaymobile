@@ -77,8 +77,10 @@ const Login = ({ navigation }) => {
                     onPress={formik.handleSubmit}
                     buttonStyle={styles.button}
                 />
-                <Text>Cique <Text
-                onPress={()=>navigation.navigate("Register")}>aqui</Text>para se registrar</Text>
+                <View style={styles.message}>
+                <Text style={styles.click}>Cique <Text style={styles.here}
+                onPress={()=>navigation.navigate("Register")}>aqui </Text>para se registrar</Text>
+                </View>
 
             </ImageBackground>
         </View>

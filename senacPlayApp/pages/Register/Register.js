@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Text, TextInput, View, Image, ImageBackground, Alert, StatusBar, KeyboardAvoidingView } from 'react-native';
-import { showMessage } from 'react-native-flash-message';
+import { Text, TextInput, View, Image, ImageBackground, Alert } from 'react-native';
 import { Button } from 'react-native-elements';
 import api from '../../services';
 import { useFormik, Formik } from 'formik';
@@ -8,9 +7,12 @@ import * as Yup from 'yup';
 import styles from './styles';
 
 const Register = ({ navigation }) => {
-const [name, setName] = useState(''); 
+const [senha, setSenha] = useState('');
+const [email, setEmail] = useState('');
+const [usuario, setUsuario] = useState('');
+const [nomeCompleto, setNomeCompleto] = useState('');
 
-    /* const formik = useFormik({
+     const formik = useFormik({
         initialValues: {
             name: '',
             email: '',
@@ -21,16 +23,16 @@ const [name, setName] = useState('');
             name: Yup.string().required('Esse campo é obrigatorio!'),
             email: Yup.string().email('Email inválido!').required('Esse campo é obrigatorio!'),
             user: Yup.string().required('Esse campo é obrigatorio!'),
-            password: Yup.string().min.required('Senha requirida!'),
+            password: Yup.string().min(6).required('Senha requirida!'),
         }),
 
-        onSubmit: async (values) => {
+        onSubmit: async () => {
             try {
                 const user = {
-                    email: values.email,
-                    senha: values.password,
-                    nomeCompleto: values.name,
-                    usuario: values.user,
+                    email:email,
+                    senha:senha,
+                    nomeCompleto:nomeCompleto,
+                    usuario:usuario,
                 };
                 const response = await api.post('users', user);
                 if (response.data) {
@@ -41,7 +43,7 @@ const [name, setName] = useState('');
                 Alert.alert(`Algo inesperado aconteceu! ${error}`)
             }
         }
-    }); */
+    }); 
 
     const handleSubmit = useCallback(() => {
 
@@ -51,10 +53,10 @@ const [name, setName] = useState('');
         <>
             <View style={styles.container}>
                 <ImageBackground style={styles.image} source={require('../../assets/background.jpg')}>
-                 {/*    {formik.errors.name ? showMessage({
+{/*                      {formik.errors.name ? showMessage({
                         message: errors.name,
                         type: "danger",
-                    }) : null} */}
+                    }) : null}  */}
                     <Image
                         source={require('../../assets/logomobile.png')}
                         style={styles.logo}
@@ -70,8 +72,9 @@ const [name, setName] = useState('');
                                         type="text"
                                         placeholder="Insira seu nome"
                                         onChangeText={() => handleChange('name')}
-                                        value={values.name}
+                                        value={nomeCompleto}
                                     />
+                                    
                                     {/* {formik.errors.name && formik.touched.name ? <Text style={styles.error}>{formik.errors.name}</Text> : null} */}
                                 </View>
 
@@ -81,7 +84,7 @@ const [name, setName] = useState('');
                                         type="text"
                                         placeholder="Insira seu email"
                                         onChangeText={() => handleChange('email')}
-                                        value={values.email}
+                                        value={email}
 
                                     />
                                     {/* {formik.errors.email && formik.touched.email ? <Text style={styles.error}>{formik.errors.email}</Text> : null} */}
@@ -93,7 +96,7 @@ const [name, setName] = useState('');
                                         type="text"
                                         placeholder="Insira seu nome de usuário"
                                         onChangeText={() => handleChange('user')}
-                                        value={values.user}
+                                        value={usuario}
                                     />
                                     {/* {formik.errors.user && formik.touched.user ? <Text style={styles.error}>{formik.errors.user}</Text> : null} */}
                                 </View>
@@ -104,7 +107,7 @@ const [name, setName] = useState('');
                                         secureTextEntry={true}
                                         placeholder="Insira sua senha"
                                         onChangeText={() => handleChange('password')}
-                                        value={values.password}
+                                        value={senha}
                                     />
                                     {/* {formik.errors.password && formik.touched.password ? <Text style={styles.error}>{formik.errors.password}</Text> : null} */}
                                 </View>
@@ -117,6 +120,10 @@ const [name, setName] = useState('');
                             </>
                         )}
                     </Formik>
+                    <View style={styles.message}>
+                    <Text style={styles.click}>Caso já tenha uma conta clique <Text style={styles.here}
+                onPress={()=>navigation.navigate("Login")}>aqui </Text></Text>
+                </View>
 
                 </ImageBackground>
             </View >
