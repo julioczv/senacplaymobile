@@ -42,7 +42,19 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#7600a9',
         width: 100
-    }
+    },
+    message: {
+        paddingTop:15,
+    },
+    click: {
+        color: '#fff',
+        fontSize: 17,
+        alignSelf: 'center'
+    },
+    here: {
+        color: '#7600a9',
+
+    },
 });
 
 export default styles;

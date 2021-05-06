@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Text, TextInput, View, Image, ImageBackground, Alert, StatusBar, KeyboardAvoidingView } from 'react-native';
-import { showMessage } from 'react-native-flash-message';
+import { Text, TextInput, View, Image, ImageBackground, Alert } from 'react-native';
 import { Button } from 'react-native-elements';
 import api from '../../services';
 import { useFormik, Formik } from 'formik';
@@ -10,7 +9,7 @@ import styles from './styles';
 const Register = ({ navigation }) => {
     const [name, setName] = useState('');
 
-    /* const formik = useFormik({
+     const formik = useFormik({
         initialValues: {
             name: '',
             email: '',
@@ -24,13 +23,13 @@ const Register = ({ navigation }) => {
             password: Yup.string().min(5,'Mínimo 5 Caracteres').required('Senha requirida!'),
         }),
 
-        onSubmit: async (values) => {
+        onSubmit: async () => {
             try {
                 const user = {
-                    email: values.email,
-                    senha: values.password,
-                    nomeCompleto: values.name,
-                    usuario: values.user,
+                    email:email,
+                    senha:senha,
+                    nomeCompleto:nomeCompleto,
+                    usuario:usuario,
                 };
                 const response = await api.post('users', user);
                 if (response.data) {
@@ -41,7 +40,7 @@ const Register = ({ navigation }) => {
                 Alert.alert('Teste')
             }
         }
-    }); */
+    }); 
 
     // onSubmit: async (values) => {
     //     const user = {
