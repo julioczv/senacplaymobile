@@ -16,8 +16,6 @@ const ConfigUser = ({ navigation }) => {
         try {
             const value = await AsyncStorage.getItem('login')
             setLogin(JSON.parse(value))
-            if(value !== null) {
-            }
         } catch(e) {
             console.log(e)
         }

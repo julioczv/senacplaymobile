@@ -40,8 +40,9 @@ const FilmHeader = ({ action, children, type }) => {
                 <Icon
                     type='font-awesome'
                     color='#7600a9'
-                    name='bars'
+                    name='user'
                     onPress={action}
+                    size={27}
                 />
             </View>
 
