@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { View, FlatList, TextInput, SafeAreaView } from 'react-native';
 import styles from './styles';
 import api from '../../services';
@@ -11,7 +11,7 @@ const Home = ({ navigation }) => {
     const [movies, setMovies] = useState([]);
     const [search, setSearch] = useState('');
 
-    const loadingMovies = async () => {
+    const loadingMovies = useCallback( async () => {
         let response;
         if (search === '')
             response = await api.get(`/filmes`);
@@ -20,7 +20,7 @@ const Home = ({ navigation }) => {
         setMovies([]);
         if (response.data)
             setMovies(response.data);
-    };
+    },[search]);
 
     const goToCfg = () => {
         navigation.navigate('ConfigUser');
@@ -28,7 +28,7 @@ const Home = ({ navigation }) => {
 
     useEffect(() => {
         loadingMovies();
-    }, [search]);
+    }, [loadingMovies]);
 
     return (
         <View style={styles.container}>

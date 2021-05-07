@@ -8,7 +8,10 @@ import styles from './styles';
 import { showMessage } from 'react-native-flash-message';
 
 const Register = ({ navigation }) => {
-    const [name, setName] = useState('');
+    /* const [nomeCompleto, setNomeCompleto] = useState('');
+    const [email, setEmail] = useState('');
+    const [usuario, setUsuario] = useState('');
+    const [senha, setSenha] = useState(''); */
 
     /*  const formik = useFormik({
         initialValues: {
@@ -43,18 +46,22 @@ const Register = ({ navigation }) => {
         }
     });  */
 
-<<<<<<< HEAD
     const handleRegister =  useCallback( async (data) => {
         console.log("Oi", data);
         try {
             const schema = Yup.object().shape({
-                name: Yup.string().required('Esse campo é obrigatorio!'),
-                email: Yup.string().email('Email inválido!').required('Esse campo é obrigatorio!'),
-                user: Yup.string().required('Esse campo é obrigatorio!'),
-                password: Yup.string().min(6, 'A senha deve ter no mínimo 6 caracteres').required('Senha requirida!'),
+                nomeCompleto: Yup.string().required('Nome é obrigatório'),
+                email: Yup.string().email('Email inválido!').required('Email é obrigatório!'),
+                usuario: Yup.string().required('Usuário obrigatório'),
+                senha: Yup.string().min(6, 'A senha deve ter no mínimo 6 caracteres').required('Senha requirida!'),
             });
             await schema.validate(data);
             // Submeter os dados para a api.
+            showMessage({
+                message: "Registro realizado com sucesso",
+                type: "success",
+            });
+            navigation.navigate("Login")
         } catch (error) {
             if (error instanceof Yup.ValidationError){
                 showMessage({
@@ -71,23 +78,6 @@ const Register = ({ navigation }) => {
     }, []);
 
     return (
-=======
-    // onSubmit: async (values) => {
-    //     const user = {
-    //         email: values.email,
-    //         senha: values.password,
-    //         nomeCompleto: values.name,
-    //         usuario: values.user,
-    //     };
-    //     Alert.alert('Teste')
-    //     /* const response = await api.post('users', user); */
-    //     /* if (response.data) {
-    //        navigation.navigate("Login");
-    //     } */
-    // }
-    
-                return (
->>>>>>> 002458a82b13c99999703ca3360b445162435e25
         <>
                     <View style={styles.container}>
                         <ImageBackground style={styles.image} source={require('../../assets/background.jpg')}>
@@ -99,14 +89,14 @@ const Register = ({ navigation }) => {
                         source={require('../../assets/logomobile.png')}
                         style={styles.logo}
                     />
-                    <Formik
+                    <Formik                  
                         enableReinitialize
                         onSubmit={handleRegister}
                         initialValues={{
-                            senha,
-                            nomeCompleto,
-                            usuario,
-                            email
+                            senha:"",
+                            nomeCompleto: "",
+                            usuario: "",
+                            email: "",
                         }}
                         
                     >
@@ -117,9 +107,9 @@ const Register = ({ navigation }) => {
                                         style={styles.input}
                                         type="text"
                                         placeholder="Insira seu nome"
-                                        /* onChangeText={handleChange('nomeCompleto')} */
+                                        onChangeText={handleChange('nomeCompleto')} 
                                         value={values.nomeCompleto}
-                                        onEndEditing={(e)=>{setNomeCompleto ( e.nativeEvent.text)}}
+                                        /* onEndEditing={(e)=>{setNomeCompleto ( e.nativeEvent.text)}} */
                                     />
                                     
                                     {/* {formik.errors.name && formik.touched.name ? <Text style={styles.error}>{formik.errors.name}</Text> : null} */}
@@ -130,9 +120,9 @@ const Register = ({ navigation }) => {
                                         style={styles.input}
                                         type="text"
                                         placeholder="Insira seu email"
-                                        /* onChangeText={ handleChange('email')} */
+                                        onChangeText={ handleChange('email')}
                                         value={values.email}
-                                        onEndEditing={(e)=>{setEmail(e.nativeEvent.text)}}
+                                        /* onEndEditing={(e)=>{setEmail(e.nativeEvent.text)}} */
 
                                             />
                                             {/* {formik.errors.email && formik.touched.email ? <Text style={styles.error}>{formik.errors.email}</Text> : null} */}
@@ -143,9 +133,9 @@ const Register = ({ navigation }) => {
                                         style={styles.input}
                                         type="text"
                                         placeholder="Insira seu nome de usuário"
-                                        /* onChangeText={handleChange('usuario')} */
+                                        onChangeText={handleChange('usuario')} 
                                         value={values.usuario}
-                                        onEndEditing={(e)=>{setUsuario( e.nativeEvent.text)}}
+                                        /* onEndEditing={(e)=>{setUsuario( e.nativeEvent.text)}} */
                                     />
                                     {/* {formik.errors.user && formik.touched.user ? <Text style={styles.error}>{formik.errors.user}</Text> : null} */}
                                 </View>
@@ -155,9 +145,9 @@ const Register = ({ navigation }) => {
                                         style={styles.input}
                                         secureTextEntry={true}
                                         placeholder="Insira sua senha"
-                                        /* onChangeText={ handleChange('senha')} */
+                                        onChangeText={ handleChange('senha')} 
                                         value={values.senha}
-                                        onEndEditing={(e)=>{setSenha(e.nativeEvent.text)}}
+                                        /* onEndEditing={(e)=>{setSenha(e.nativeEvent.text)}} */
                                     />
                                     {/* {formik.errors.password && formik.touched.password ? <Text style={styles.error}>{formik.errors.password}</Text> : null} */}
                                 </View>
@@ -167,6 +157,10 @@ const Register = ({ navigation }) => {
                                     onPress={()=>handleSubmit()}
                                     buttonStyle={styles.button}
                                 />
+                                 <View style={styles.message}>
+                    <Text style={styles.click}>Caso já tenha uma conta clique <Text style={styles.here}
+                onPress={()=>navigation.navigate("Login")}>aqui </Text></Text>
+                </View>
                             </>
                         )}
                     </Formik>
