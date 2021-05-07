@@ -6,9 +6,7 @@ const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#212529",
-        color: '#fff',
-        paddingLeft: 3,
+        backgroundColor: "#212529"
     },
     img: {
         width: windowWidth*0.4,
@@ -16,42 +14,36 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 10,
         borderColor: '#7600a9',
-        marginTop: 20,
+        marginTop: 15,
         marginBottom: 15,
+        alignSelf: 'center'
     },
     textColor: {
         color: '#fff',
         fontSize: 18
     },
     sinopse: {
-        marginTop: 15,
+        marginTop: 10,
         marginBottom: 15,
-        marginLeft: 3
-        
-    },
-    header: {
-        width: 30,
-        height: 80,
+        marginLeft: 10,
     },
     film: {
-        width: windowWidth*1,
-        height: windowHeight*0.5,
-        marginBottom: 40,
+        width: windowWidth*0.9,
+        height: windowHeight*0.3,
+        marginBottom: 20,
+        alignSelf: 'center',
     },
     colorido: {
         color: '#7600a9',
         fontSize: 21
     },
-    infoCard: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
     colorSinopse: {
         fontSize: 26,
         color: '#7600a9',
         alignSelf: 'center',
-        paddingTop: 20
+    },
+    description: {
+        paddingLeft: 10
     }
 })
 

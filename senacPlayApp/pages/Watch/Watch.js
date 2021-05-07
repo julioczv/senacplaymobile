@@ -11,38 +11,26 @@ const Watch = ({ route, navigation }) => {
     }
 
     return (
-        <>
+        <ScrollView>
             <Header type='goBack' action={goBack} />
-            <ScrollView>
                 <View style={styles.container}>
-
-                    <View>
-                        <Image source={{ uri: item.imagem }} style={styles.img} />
-                    </View>
-
-                    <View style={styles.flex}>
-
-                        <View style={styles.nome}>
+                    
+                        <View>
+                            <Image source={{ uri: item.imagem }} style={styles.img} />
+                        </View>
+                        
+                        <View style={styles.description}>
                             <Text style={styles.colorido}>Filme: <Text style={styles.textColor}>{item.nome}</Text></Text>
-                        </View>
-
-                        <View style={styles.ano}>
+                            
                             <Text style={styles.colorido}>Ano: <Text style={styles.textColor}>{item.anoDeLancamento}</Text></Text>
-                        </View>
-
-                        <View style={styles.duracao}>
+                            
                             <Text style={styles.colorido}>Duração: <Text style={styles.textColor}>{item.duracao}</Text></Text>
-                        </View>
 
-                        <View style={styles.categoria}>
                             <Text style={styles.colorido}>Categoria:  <Text style={styles.textColor}>{item.categoria}</Text></Text>
-                        </View>
 
-                        <View style={styles.class}>
                             <Text style={styles.colorido}>Classificação: <Text style={styles.textColor}>{item.classificacao}</Text></Text>
                         </View>
-
-                    </View>
+                    
                     
                     <View>
                         <Text style={styles.colorSinopse}>Sinopse</Text>
@@ -61,10 +49,7 @@ const Watch = ({ route, navigation }) => {
                         />
                     </View>
                 </View >
-
-
-            </ScrollView>
-        </>
+        </ScrollView>
     )
 };
 
