@@ -2,37 +2,30 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: '#27282D',
         flex: 1,
+        alignItems: 'center',
         justifyContent: 'center',
     },
     input: {
-        marginBottom: 8,
-        padding: 10,
-        width: 300,
-        backgroundColor: '#fff',
-        fontSize: 16,
-        fontWeight: 'bold',
-        borderColor: '#7600a9',
-        borderWidth: 1,
-        borderRadius: 3,
+        width: 350,
+        height: 40,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        paddingLeft: 10,
+        marginBottom: 10,
     },
-    logo: {
-        width: 150,
-        height: 150
+    button: {
+        width: 350,
+        height: 40,
+        backgroundColor: '#7b42f5',
+        borderRadius: 20,
+        justifyContent: 'center'
     },
-    image: {
-        flex: 1,
-        resizeMode: "cover",
-        justifyContent: "center",
-        alignItems: 'center',
-      },
     error: {
         color: '#f54242',
     },
-    button: {
-        backgroundColor: '#7600a9',
-        width: 100
-    },
+    
     here: {
         color: '#7600a9',
 

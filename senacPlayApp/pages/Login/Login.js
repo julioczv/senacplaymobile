@@ -43,12 +43,9 @@ const Login = ({ navigation }) => {
     return (
 
         <View style={styles.container}>
-            <ImageBackground style={styles.image} source={require('../../assets/background.jpg')} >
+           
+           <Image style={{width: 200, height: 200}} source={require('../../assets/logo.png')} ></Image>
 
-                <Image
-                    source={require('../../assets/logomobile.png')}
-                    style={styles.logo}
-                />
 
                 <View>
                     <TextInput
@@ -77,7 +74,7 @@ const Login = ({ navigation }) => {
                     onPress={formik.handleSubmit}
                     buttonStyle={styles.button}
                 />
-            </ImageBackground>
+           
         </View>
     )
 }
