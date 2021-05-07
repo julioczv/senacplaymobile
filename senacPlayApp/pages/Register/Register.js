@@ -5,11 +5,15 @@ import api from '../../services';
 import { useFormik, Formik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
+import { showMessage } from 'react-native-flash-message';
 
 const Register = ({ navigation }) => {
-    const [name, setName] = useState('');
+    /* const [nomeCompleto, setNomeCompleto] = useState('');
+    const [email, setEmail] = useState('');
+    const [usuario, setUsuario] = useState('');
+    const [senha, setSenha] = useState(''); */
 
-     const formik = useFormik({
+    /*  const formik = useFormik({
         initialValues: {
             name: '',
             email: '',
@@ -40,96 +44,129 @@ const Register = ({ navigation }) => {
                 Alert.alert('Teste')
             }
         }
-    }); 
+    });  */
 
-    // onSubmit: async (values) => {
-    //     const user = {
-    //         email: values.email,
-    //         senha: values.password,
-    //         nomeCompleto: values.name,
-    //         usuario: values.user,
-    //     };
-    //     Alert.alert('Teste')
-    //     /* const response = await api.post('users', user); */
-    //     /* if (response.data) {
-    //        navigation.navigate("Login");
-    //     } */
-    // }
-    
-                return (
+    const handleRegister =  useCallback( async (data) => {
+        console.log("Oi", data);
+        try {
+            const schema = Yup.object().shape({
+                nomeCompleto: Yup.string().required('Nome é obrigatório'),
+                email: Yup.string().email('Email inválido!').required('Email é obrigatório!'),
+                usuario: Yup.string().required('Usuário obrigatório'),
+                senha: Yup.string().min(6, 'A senha deve ter no mínimo 6 caracteres').required('Senha requirida!'),
+            });
+            await schema.validate(data);
+            // Submeter os dados para a api.
+            showMessage({
+                message: "Registro realizado com sucesso",
+                type: "success",
+            });
+            navigation.navigate("Login")
+        } catch (error) {
+            if (error instanceof Yup.ValidationError){
+                showMessage({
+                    message: error.message,
+                    type: "danger",
+                });
+            }  console.log(error.message);
+            showMessage({
+                message: error.message,
+                type: "danger",
+            });        
+        }              
+
+    }, []);
+
+    return (
         <>
                     <View style={styles.container}>
                         <ImageBackground style={styles.image} source={require('../../assets/background.jpg')}>
                             {/*    {formik.errors.name ? showMessage({
                         message: errors.name,
                         type: "danger",
-                    }) : null} */}
-                            <Image
-                                source={require('../../assets/logomobile.png')}
-                                style={styles.logo}
-                            />
-                            <Formik
-                                onSubmit={handleSubmit}
-                            >
-                                {({ handleSubmit, values, setFieldValue, handleChange }) => (
-                                    <>
-                                        <View>
-                                            <TextInput
-                                                style={styles.input}
-                                                type="text"
-                                                placeholder="Insira seu nome"
-                                                onChangeText={() => handleChange('name')}
-                                                value={values.name}
-                                            />
-                                            {/* {formik.errors.name && formik.touched.name ? <Text style={styles.error}>{formik.errors.name}</Text> : null} */}
-                                        </View>
+                    }) : null}  */}
+                    <Image
+                        source={require('../../assets/logomobile.png')}
+                        style={styles.logo}
+                    />
+                    <Formik                  
+                        enableReinitialize
+                        onSubmit={handleRegister}
+                        initialValues={{
+                            senha:"",
+                            nomeCompleto: "",
+                            usuario: "",
+                            email: "",
+                        }}
+                        
+                    >
+                        {({ handleSubmit, values, setFieldValue, handleChange }) => (
+                            <>
+                                <View>
+                                    <TextInput
+                                        style={styles.input}
+                                        type="text"
+                                        placeholder="Insira seu nome"
+                                        onChangeText={handleChange('nomeCompleto')} 
+                                        value={values.nomeCompleto}
+                                        /* onEndEditing={(e)=>{setNomeCompleto ( e.nativeEvent.text)}} */
+                                    />
+                                    
+                                    {/* {formik.errors.name && formik.touched.name ? <Text style={styles.error}>{formik.errors.name}</Text> : null} */}
+                                </View>
 
-                                        <View>
-                                            <TextInput
-                                                style={styles.input}
-                                                type="text"
-                                                placeholder="Insira seu email"
-                                                onChangeText={() => handleChange('email')}
-                                                value={values.email}
+                                <View>
+                                    <TextInput
+                                        style={styles.input}
+                                        type="text"
+                                        placeholder="Insira seu email"
+                                        onChangeText={ handleChange('email')}
+                                        value={values.email}
+                                        /* onEndEditing={(e)=>{setEmail(e.nativeEvent.text)}} */
 
                                             />
                                             {/* {formik.errors.email && formik.touched.email ? <Text style={styles.error}>{formik.errors.email}</Text> : null} */}
                                         </View>
 
-                                        <View>
-                                            <TextInput
-                                                style={styles.input}
-                                                type="text"
-                                                placeholder="Insira seu nome de usuário"
-                                                onChangeText={() => handleChange('user')}
-                                                value={values.user}
-                                            />
-                                            {/* {formik.errors.user && formik.touched.user ? <Text style={styles.error}>{formik.errors.user}</Text> : null} */}
-                                        </View>
+                                <View>
+                                    <TextInput
+                                        style={styles.input}
+                                        type="text"
+                                        placeholder="Insira seu nome de usuário"
+                                        onChangeText={handleChange('usuario')} 
+                                        value={values.usuario}
+                                        /* onEndEditing={(e)=>{setUsuario( e.nativeEvent.text)}} */
+                                    />
+                                    {/* {formik.errors.user && formik.touched.user ? <Text style={styles.error}>{formik.errors.user}</Text> : null} */}
+                                </View>
 
-                                        <View>
-                                            <TextInput
-                                                style={styles.input}
-                                                secureTextEntry={true}
-                                                placeholder="Insira sua senha"
-                                                onChangeText={() => handleChange('password')}
-                                                value={values.password}
-                                            />
-                                            {/* {formik.errors.password && formik.touched.password ? <Text style={styles.error}>{formik.errors.password}</Text> : null} */}
-                                        </View>
+                                <View>
+                                    <TextInput
+                                        style={styles.input}
+                                        secureTextEntry={true}
+                                        placeholder="Insira sua senha"
+                                        onChangeText={ handleChange('senha')} 
+                                        value={values.senha}
+                                        /* onEndEditing={(e)=>{setSenha(e.nativeEvent.text)}} */
+                                    />
+                                    {/* {formik.errors.password && formik.touched.password ? <Text style={styles.error}>{formik.errors.password}</Text> : null} */}
+                                </View>
 
-                                        <Button
-                                            title="Enviar"
-                                            onPress={handleSubmit}
-                                            buttonStyle={styles.button}
-                                        />
-                                    </>
-                                )}
-                            </Formik>
-
-                        </ImageBackground>
-                    </View >
-                </>
+                                <Button
+                                    title="Enviar"
+                                    onPress={()=>handleSubmit()}
+                                    buttonStyle={styles.button}
+                                />
+                                 <View style={styles.message}>
+                    <Text style={styles.click}>Caso já tenha uma conta clique <Text style={styles.here}
+                onPress={()=>navigation.navigate("Login")}>aqui </Text></Text>
+                </View>
+                            </>
+                        )}
+                    </Formik>
+                </ImageBackground>
+            </View >
+        </>
     );
 };
 
