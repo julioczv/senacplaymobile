@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import Watch from './pages/Watch';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import CfgUsuario from './pages/CfgUsuario';
+import ConfigUser from './pages/ConfigUser';
 
 const Stack = createStackNavigator();
 
@@ -15,11 +15,12 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login" headerMode={'none'}>
+      <Stack.Navigator initialRouteName="Home" headerMode={'none'}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Watch" component={Watch} />
+        <Stack.Screen name="ConfigUser" component={ConfigUser} />
 
       </Stack.Navigator>
       <FlashMessage

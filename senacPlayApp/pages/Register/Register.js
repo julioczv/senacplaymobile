@@ -8,10 +8,7 @@ import styles from './styles';
 import { showMessage } from 'react-native-flash-message';
 
 const Register = ({ navigation }) => {
-const [senha, setSenha] = useState('');
-const [email, setEmail] = useState('');
-const [usuario, setUsuario] = useState('');
-const [nomeCompleto, setNomeCompleto] = useState('');
+    const [name, setName] = useState('');
 
     /*  const formik = useFormik({
         initialValues: {
@@ -24,7 +21,7 @@ const [nomeCompleto, setNomeCompleto] = useState('');
             name: Yup.string().required('Esse campo é obrigatorio!'),
             email: Yup.string().email('Email inválido!').required('Esse campo é obrigatorio!'),
             user: Yup.string().required('Esse campo é obrigatorio!'),
-            password: Yup.string().min(6).required('Senha requirida!'),
+            password: Yup.string().min(5,'Mínimo 5 Caracteres').required('Senha requirida!'),
         }),
 
         onSubmit: async () => {
@@ -37,15 +34,16 @@ const [nomeCompleto, setNomeCompleto] = useState('');
                 };
                 const response = await api.post('users', user);
                 if (response.data) {
-                    Alert.alert('Conta criada com sucesso!')
+                    Alert.alert('Conta criada!')
                     navigation.navigate("Login");
                 }
             } catch (error) {
-                Alert.alert(`Algo inesperado aconteceu! ${error}`)
+                Alert.alert('Teste')
             }
         }
     });  */
 
+<<<<<<< HEAD
     const handleRegister =  useCallback( async (data) => {
         console.log("Oi", data);
         try {
@@ -73,10 +71,27 @@ const [nomeCompleto, setNomeCompleto] = useState('');
     }, []);
 
     return (
+=======
+    // onSubmit: async (values) => {
+    //     const user = {
+    //         email: values.email,
+    //         senha: values.password,
+    //         nomeCompleto: values.name,
+    //         usuario: values.user,
+    //     };
+    //     Alert.alert('Teste')
+    //     /* const response = await api.post('users', user); */
+    //     /* if (response.data) {
+    //        navigation.navigate("Login");
+    //     } */
+    // }
+    
+                return (
+>>>>>>> 002458a82b13c99999703ca3360b445162435e25
         <>
-            <View style={styles.container}>
-                <ImageBackground style={styles.image} source={require('../../assets/background.jpg')}>
-{/*                      {formik.errors.name ? showMessage({
+                    <View style={styles.container}>
+                        <ImageBackground style={styles.image} source={require('../../assets/background.jpg')}>
+                            {/*    {formik.errors.name ? showMessage({
                         message: errors.name,
                         type: "danger",
                     }) : null}  */}
@@ -119,9 +134,9 @@ const [nomeCompleto, setNomeCompleto] = useState('');
                                         value={values.email}
                                         onEndEditing={(e)=>{setEmail(e.nativeEvent.text)}}
 
-                                    />
-                                    {/* {formik.errors.email && formik.touched.email ? <Text style={styles.error}>{formik.errors.email}</Text> : null} */}
-                                </View>
+                                            />
+                                            {/* {formik.errors.email && formik.touched.email ? <Text style={styles.error}>{formik.errors.email}</Text> : null} */}
+                                        </View>
 
                                 <View>
                                     <TextInput

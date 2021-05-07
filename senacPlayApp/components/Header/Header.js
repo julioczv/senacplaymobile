@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, TouchableOpacity } from 'react-native';
+import { View, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import { Header, Icon, } from 'react-native-elements';
 import logo from '../../assets/logo.png';
 import styles from './styles';
@@ -7,26 +7,34 @@ import styles from './styles';
 const FilmHeader = ({ action, children, type }) => {
     if (type === 'goBack') {
         return (
-            <Header backgroundColor="#212529">
+            <Header 
+            backgroundColor="#212529"
+            containerStyle={styles.headerStyles} 
+            >
                 <TouchableOpacity>
-                    <Icon style={{ size: 7 }}
+                    <Icon 
+                        size={35}
                         type='font-awesome'
                         color='#7600a9'
                         name='arrow-left'
                         onPress={action}
                     />
                 </TouchableOpacity>
-                <Image source={logo} style={styles.logo} /> 
+                    <Image source={logo} style={styles.logo} /> 
                 <View />
             </Header>
         )
     }
     
     return (
-        <Header backgroundColor="#212529">
+        <Header 
+            containerStyle={styles.headerStyles} 
+            barStyle="default" 
+            backgroundColor="#212529"
+        >
             <Image source={logo} style={styles.logo} />
-            <View style={styles.lupa}>
-                {children}
+
+            <View style={styles.lupa}>{children}
                 <Icon style={styles.search}
                     type='font-awesome'
                     color='#7600a9'
@@ -34,16 +42,13 @@ const FilmHeader = ({ action, children, type }) => {
                     size= {20}
                 />
             </View>
-            <View>
-                <TouchableOpacity>
-                    <Icon
-                        type='font-awesome'
-                        color='#7600a9'
-                        name='bars'
-                        onPress={action}
-                    />
-                </TouchableOpacity>
-            </View>
+                <Icon
+                    type='font-awesome'
+                    color='#7600a9'
+                    name='user'
+                    onPress={action}
+                    size={35}
+                />
         </Header>
     );
 }

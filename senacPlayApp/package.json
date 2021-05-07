@@ -30,7 +30,8 @@
     "react-native-video-controls": "^2.7.1",
     "react-native-web": "~0.13.12",
     "react-native-webview": "11.2.3",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "@react-native-async-storage/async-storage": "^1.13.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

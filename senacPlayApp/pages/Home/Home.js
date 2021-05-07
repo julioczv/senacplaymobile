@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, FlatList, TextInput } from 'react-native';
+import { View, FlatList, TextInput, SafeAreaView } from 'react-native';
 import styles from './styles';
 import api from '../../services';
 import RenderFilm from '../../components/RenderFilm';
@@ -23,7 +23,7 @@ const Home = ({ navigation }) => {
     };
 
     const goToCfg = () => {
-        navigation.navigate('CfgUsuario');
+        navigation.navigate('ConfigUser');
       }
 
     useEffect(() => {
@@ -33,8 +33,8 @@ const Home = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Header 
-            action={goToCfg} 
-            >
+                action={goToCfg}
+                >
                     <TextInput
                         style={{ height: 40, color: '#fff' }}
                         placeholder="Pesquise seu filme"
