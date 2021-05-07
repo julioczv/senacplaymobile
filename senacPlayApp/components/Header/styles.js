@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     logo: {
-        width: 30,
-        height: 30,
+        width: 40,
+        height: 40,
         borderRadius: 20,
         borderWidth: 1,
         borderColor: '#7600a9'
@@ -12,12 +12,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center'
     },
-    header: {
-        backgroundColor:"#212529",
-        alignItems: 'center'
-    },
     search: {
         marginLeft: 5
+    },
+    headerStyles: {
+        justifyContent: 'space-around',
+        borderBottomColor: '#7600a9',
+        borderBottomWidth: 2,
     }
 });
 
