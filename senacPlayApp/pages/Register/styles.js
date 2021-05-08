@@ -13,10 +13,7 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         marginBottom: 10,
     },
-    logo: {
-        width: 150,
-        height: 150
-    },
+
     textWelcome: {
         color: '#fff',
         fontSize: 24,
@@ -39,7 +36,7 @@ const styles = StyleSheet.create({
     button: {
         width: 350,
         height: 40,
-        backgroundColor: '#7b42f5',
+        backgroundColor: '#7600a9',
         borderRadius: 20,
         justifyContent: 'center'
     },

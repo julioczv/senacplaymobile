@@ -91,10 +91,9 @@ const Register = ({ navigation }) => {
                         message: errors.name,
                         type: "danger",
                     }) : null}  */}
-                    <Image
-                        source={require('../../assets/logomobile.png')}
-                        style={styles.logo}
-                    />
+                    
+                    <Image style={{ width: 200, height: 200 }} source={require('../../assets/logo.png')} 
+                     />
                     <Formik
                         enableReinitialize
                         onSubmit={handleRegister}

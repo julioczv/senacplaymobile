@@ -76,8 +76,10 @@ const Login = ({ navigation }) => {
                     translucent={false}
                     networkActivityIndicatorVisible={true}
                 />
+                 <ImageBackground style={styles.image} source={require('../../assets/background.jpg')}>
 
-                <Image style={{ width: 200, height: 200 }} source={require('../../assets/logo.png')} ></Image>
+                <Image style={{ width: 200, height: 200 }} source={require('../../assets/logo.png')} 
+                />
 
                 <Formik
                     enableReinitialize
@@ -116,14 +118,16 @@ const Login = ({ navigation }) => {
                                 buttonStyle={styles.button}
                             />
 
-                            <View>
-                                <Text style={styles.click}>Cique <Text style={styles.here}
+                            <View style={styles.message}>
+                                <Text style={styles.click}> Clique <Text style={styles.here}
                                     onPress={() => navigation.navigate("Register")}>aqui </Text>para se registrar</Text>
                             </View>
                         </>
                     )}
                 </Formik>
+                </ImageBackground>
             </View>
+            
         </>
     )
 }
