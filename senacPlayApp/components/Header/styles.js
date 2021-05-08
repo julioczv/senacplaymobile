@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     logo: {
         width: 40,
         height: 40,
-        borderRadius: 20,
+        borderRadius: 15,
         borderWidth: 1,
         borderColor: '#7600a9'
     },
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         borderBottomColor: '#7600a9',
         borderBottomWidth: 2,
+        backgroundColor: '#212529'
     }
 });
 

@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Text, TextInput, View, Image, ImageBackground, Alert } from 'react-native';
+import { Text, TextInput, View, Image, ImageBackground, Alert, StatusBar } from 'react-native';
 import { Button } from 'react-native-elements';
 import api from '../../services';
 import { useFormik, Formik } from 'formik';
@@ -80,6 +80,13 @@ const Register = ({ navigation }) => {
     return (
         <>
                     <View style={styles.container}>
+                        <StatusBar
+                            barStyle = "light-content"
+                            hidden = {false}
+                            backgroundColor = "#7600a9"
+                            translucent = {false}
+                            networkActivityIndicatorVisible = {true}
+                        />
                         <ImageBackground style={styles.image} source={require('../../assets/background.jpg')}>
                             {/*    {formik.errors.name ? showMessage({
                         message: errors.name,

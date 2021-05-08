@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+import { View, Image, TouchableOpacity, StatusBar } from 'react-native';
 import { Header, Icon, } from 'react-native-elements';
 import logo from '../../assets/logo.png';
 import styles from './styles';
@@ -7,49 +7,65 @@ import styles from './styles';
 const FilmHeader = ({ action, children, type }) => {
     if (type === 'goBack') {
         return (
-            <Header 
-            backgroundColor="#212529"
-            containerStyle={styles.headerStyles} 
-            >
-                <TouchableOpacity>
-                    <Icon 
-                        size={35}
-                        type='font-awesome'
-                        color='#7600a9'
-                        name='arrow-left'
-                        onPress={action}
+            <View>
+                <View>
+                    <Header containerStyle={styles.headerStyles}>
+                        <TouchableOpacity>
+                            <Icon 
+                                size={40}
+                                type='font-awesome'
+                                color='#7600a9'
+                                name='arrow-left'
+                                onPress={action}
+                            />
+                        </TouchableOpacity>
+                            <Image source={logo} style={styles.logo} /> 
+                    </Header>
+                </View>
+                    <StatusBar
+                        barStyle = "light-content"
+                        hidden = {false}
+                        backgroundColor = "#7600a9"
+                        translucent = {false}
+                        networkActivityIndicatorVisible = {true}
                     />
-                </TouchableOpacity>
-                    <Image source={logo} style={styles.logo} /> 
-                <View />
-            </Header>
+            </View>
         )
     }
     
     return (
-        <Header 
-            containerStyle={styles.headerStyles} 
-            barStyle="default" 
-            backgroundColor="#212529"
-        >
-            <Image source={logo} style={styles.logo} />
+        <View>
+            <View>
+                <Header containerStyle={styles.headerStyles}>
 
-            <View style={styles.lupa}>{children}
-                <Icon style={styles.search}
-                    type='font-awesome'
-                    color='#7600a9'
-                    name='search'
-                    size= {20}
-                />
+                    <Image source={logo} style={styles.logo} />
+
+                    <View style={styles.lupa}>{children}
+                        <Icon style={styles.search}
+                            type='font-awesome'
+                            color='#7600a9'
+                            name='search'
+                            size= {20}
+                        />
+                    </View>
+
+                        <Icon
+                            type='font-awesome'
+                            color='#7600a9'
+                            name='user'
+                            onPress={action}
+                            size={40}
+                        />
+                </Header>
             </View>
-                <Icon
-                    type='font-awesome'
-                    color='#7600a9'
-                    name='user'
-                    onPress={action}
-                    size={35}
+                <StatusBar
+                    barStyle = "light-content"
+                    hidden = {false}
+                    backgroundColor = "#7600a9"
+                    translucent = {false}
+                    networkActivityIndicatorVisible = {true}
                 />
-        </Header>
+        </View>
     );
 }
 

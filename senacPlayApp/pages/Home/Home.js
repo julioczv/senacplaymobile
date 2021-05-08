@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, FlatList, TextInput, SafeAreaView } from 'react-native';
+import { View, FlatList, TextInput, SafeAreaView, StatusBar} from 'react-native';
 import styles from './styles';
 import api from '../../services';
 import RenderFilm from '../../components/RenderFilm';
@@ -31,10 +31,9 @@ const Home = ({ navigation }) => {
     }, [loadingMovies]);
 
     return (
-        <View style={styles.container}>
-            <Header 
-                action={goToCfg}
-                >
+            <View style={styles.container}>
+                <SafeAreaView style={{flex: 1}}>
+                <Header action={goToCfg}>
                     <TextInput
                         style={{ height: 40, color: '#fff' }}
                         placeholder="Pesquise seu filme"
@@ -45,21 +44,20 @@ const Home = ({ navigation }) => {
                         value={search}
                         placeholderTextColor="#b7b7b7"
                     />
-            </Header>
-            <View>
-                <FlatList
-                    contentContainerStyle={{ paddingBottom: 110 }}
-                    numColumns={colunas}
-                    data={movies}
-                    renderItem={
-                        ({ item }) =>
-                            <RenderFilm item={item} />
+                </Header>
 
-                    }
-                    keyExtractor={item => String(item.id)}
-                />
+                <View>
+                    <FlatList
+                        contentContainerStyle={{ paddingBottom: 110 }}
+                        numColumns={colunas}
+                        data={movies}
+                        renderItem={({ item }) => <RenderFilm item={item} />}
+                        keyExtractor={item => String(item.id)}
+                    />
+                </View>
+                
+                </SafeAreaView>
             </View>
-        </View>
     );
 };
 
