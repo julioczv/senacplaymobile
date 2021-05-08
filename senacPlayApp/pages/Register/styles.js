@@ -6,15 +6,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     input: {
-        marginBottom: 8,
-        padding: 10,
-        width: 300,
-        backgroundColor: '#fff',
-        fontSize: 16,
-        fontWeight: 'bold',
-        borderColor: '#7600a9',
-        borderWidth: 1,
-        borderRadius: 3,
+        width: 350,
+        height: 40,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        paddingLeft: 10,
+        marginBottom: 10,
     },
     logo: {
         width: 150,
@@ -40,8 +37,11 @@ const styles = StyleSheet.create({
         color: '#f54242'
     },
     button: {
-        backgroundColor: '#7600a9',
-        width: 100
+        width: 350,
+        height: 40,
+        backgroundColor: '#7b42f5',
+        borderRadius: 20,
+        justifyContent: 'center'
     },
     message: {
         paddingTop:15,
