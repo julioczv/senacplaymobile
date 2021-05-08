@@ -47,7 +47,6 @@ const Register = ({ navigation }) => {
     });  */
 
     const handleRegister = useCallback(async (data) => {
-        console.log("Oi", data);
         try {
             const schema = Yup.object().shape({
                 nomeCompleto: Yup.string().required('Nome é obrigatório'),
