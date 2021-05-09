@@ -13,10 +13,7 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         marginBottom: 10,
     },
-    logo: {
-        width: 150,
-        height: 150
-    },
+
     textWelcome: {
         color: '#fff',
         fontSize: 24,
