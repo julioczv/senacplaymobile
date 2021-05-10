@@ -14,6 +14,12 @@ const styles = StyleSheet.create({
     textColor: {
         color: '#fff',
         fontSize: 20
+    },
+    image: {
+        width: 230,
+        height: 220,
+        marginLeft: 3,
+        marginTop: 3
     }
 });
 
