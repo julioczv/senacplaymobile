@@ -12,6 +12,17 @@ const ConfigUser = ({ navigation }) => {
         navigation.goBack();
     }
 
+    const profilePicture = () => {
+        const pictures = [
+            "https://i.imgur.com/2ezz7tz.png",
+            "https://sguru.org/wp-content/uploads/2017/06/steam-avatar-profile-picture-1003.jpg",
+            "https://sguru.org/wp-content/uploads/2017/06/steam-avatar-profile-picture-1773.jpg",
+            "https://i.pinimg.com/originals/6f/06/52/6f0652369f39ec5aab17fc1e29377c6a.png"
+        ];
+        const aleatory = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+        return pictures[aleatory];
+    }
+
     const getLogin = useCallback( async () => {
         try {
             const login = await AsyncStorage.getItem('login')
@@ -28,10 +39,10 @@ const ConfigUser = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Header type='goBack' action={goBack}/>
-            <Image source={{uri: "https://i.imgur.com/2ezz7tz.png"}} style={styles.image}/>
+            <Image source={{uri: profilePicture() }} style={styles.image}/>
             <Text style={styles.colorText}>Nome: <Text style={styles.textColor}>{login.nomeCompleto}</Text></Text> 
             <Text style={styles.colorText}>Usuário: <Text style={styles.textColor}>{login.usuario}</Text></Text> 
-            <Text style={styles.colorText}>Email: <Text style={styles.textColor}>{login.email}</Text></Text> 
+            <Text style={styles.colorText}>Email: <Text style={styles.textColor}>{login.email}</Text></Text>
         </View>
     )
 };
