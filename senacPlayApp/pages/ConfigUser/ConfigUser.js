@@ -38,7 +38,7 @@ const ConfigUser = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Header type='goBack' action={goBack}/>
+            <Header type='exit' action={goBack}/>
             <Image source={{uri: profilePicture() }} style={styles.image}/>
             <Text style={styles.colorText}>Nome: <Text style={styles.textColor}>{login.nomeCompleto}</Text></Text> 
             <Text style={styles.colorText}>Usuário: <Text style={styles.textColor}>{login.usuario}</Text></Text> 

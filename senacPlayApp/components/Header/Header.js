@@ -19,16 +19,42 @@ const FilmHeader = ({ action, children, type, }) => {
                                 color='#7600a9'
                                 name='arrow-left'
                                 onPress={action}
-                            />                   
-                        </TouchableOpacity>
-                            <Image source={logo} style={styles.logo} /> 
-                            <Icon
-                                size={40}
-                                type='font-awesome'
-                                color='#7600a9'
-                                name='sign-out'
-                                onPress={()=> navigation.navigate("Login")}
                             />
+                        </TouchableOpacity>
+                            <Image source={logo} style={styles.logo} />
+                    </Header>
+                </View>
+                    <StatusBar
+                        barStyle = "light-content"
+                        hidden = {false}
+                        backgroundColor = "#7600a9"
+                        translucent = {false}
+                        networkActivityIndicatorVisible = {true}
+                    />
+            </View>
+        )
+    }
+
+    else if (type === 'exit') {
+        return (
+            <View>
+                <View>
+                    <Header containerStyle={styles.headerStyles}>
+                        <Icon 
+                            size={40}
+                            type='font-awesome'
+                            color='#7600a9'
+                            name='arrow-left'
+                            onPress={action}
+                        />
+                            <Image source={logo} style={styles.logo}/>
+                        <Icon
+                            size={40}
+                            type='font-awesome'
+                            color='#7600a9'
+                            name='sign-out'
+                            onPress={()=> navigation.navigate("Login")}
+                        />
                     </Header>
                 </View>
                     <StatusBar
