@@ -49,6 +49,8 @@ const Login = ({ navigation }) => {
             });
             await schema.validate(data);
             const response = await api.post('login', data);
+            const jsonData = JSON.stringify(response.data);
+            await AsyncStorage.setItem('login', jsonData);
             navigation.navigate("Home")
         } catch (error) {
             if (error instanceof Yup.ValidationError) {
