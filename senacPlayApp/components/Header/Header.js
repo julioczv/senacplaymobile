@@ -3,8 +3,10 @@ import { View, Image, TouchableOpacity, StatusBar } from 'react-native';
 import { Header, Icon, } from 'react-native-elements';
 import logo from '../../assets/logo.png';
 import styles from './styles';
+import { useNavigation } from '@react-navigation/native';
 
-const FilmHeader = ({ action, children, type }) => {
+const FilmHeader = ({ action, children, type, }) => {
+    const navigation = useNavigation();
     if (type === 'goBack') {
         return (
             <View>
@@ -17,9 +19,16 @@ const FilmHeader = ({ action, children, type }) => {
                                 color='#7600a9'
                                 name='arrow-left'
                                 onPress={action}
-                            />
+                            />                   
                         </TouchableOpacity>
                             <Image source={logo} style={styles.logo} /> 
+                            <Icon
+                                size={40}
+                                type='font-awesome'
+                                color='#7600a9'
+                                name='sign-out'
+                                onPress={()=> navigation.navigate("Login")}
+                            />
                     </Header>
                 </View>
                     <StatusBar
